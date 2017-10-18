@@ -12,7 +12,7 @@ impl WordStore {
         WordStore (HashMap::new())
     }
 
-    fn increment(word: &str) {
+    fn increment(&mut self, word: &str) {
         let key = word.to_string();
         let count = self.0.entry(key).or_insert(0);
         *count += 1;
