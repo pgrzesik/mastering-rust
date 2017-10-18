@@ -2,12 +2,13 @@ use std::env;
 use std::fs::File;
 use std::io::prelude::BufRead;
 use std::io::BufReader;
+use std::collections::HashMap;
 
 #[derive(Debug)]
 struct WordStore (HashMap<String, u64>);
 
 impl WordStore {
-    fn new() {
+    fn new() -> WordStore{
         WordStore (HashMap::new())
     }
 
