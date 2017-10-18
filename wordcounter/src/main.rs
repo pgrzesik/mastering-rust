@@ -34,7 +34,7 @@ fn main() {
     let file = File::open(filename).expect("File couldn't be open!");
     let reader = BufReader::new(file);
 
-    let word_store = WordStore::new();
+    let mut word_store = WordStore::new();
 
     for line in reader.lines() {
         let line = line.expect("Couldn't read line!");
