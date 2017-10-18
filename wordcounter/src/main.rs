@@ -18,7 +18,7 @@ impl WordStore {
         *count += 1;
     }
 
-    fn display(self) {
+    fn display(&self) {
         for (key, value) in self.0.iter() {
             println!("{}: {}", key, value)
         }
