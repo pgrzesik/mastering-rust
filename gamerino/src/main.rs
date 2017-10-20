@@ -1,3 +1,15 @@
+enum Direction {
+    West,
+    East,
+    North,
+    South
+}
+
+#[derive(Debug, PartialEq)]
+enum MovementError {
+    NotBeingInSquare
+}
+
 #[derive(PartialEq, Debug)]
 enum TerrainGround {
     Soil,
