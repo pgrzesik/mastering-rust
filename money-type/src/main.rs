@@ -10,7 +10,7 @@ enum Currency {
 
 #[derive(Debug)]
 struct Money {
-    amount: u32,
+    amount: i32,
     currency: Currency
 }
 
