@@ -60,6 +60,15 @@ impl Grid {
             squares
         }
     }
+
+    fn move_being(&self, coords: (usize, usize), direction: Direction) -> Result<(usize, usize), MovementError> {
+        let square = self.squares.get(coords.0 * self.size.0 + coords.1).expect("Index of out bounds!");
+
+        match square.being {
+            Some(_) => Ok((0, 0)),
+            None => Err(MovementError::NotBeingInSquare)
+        }
+    }
 }
 
 
@@ -80,6 +89,12 @@ mod tests {
 
         assert_eq!(grid.squares.len(), 5*13);
         assert_eq!(number_of_squares, 5*13);
+    }
+
+    #[test]
+    fn test_move_being_without_being_in_square() {
+        let grid = ::Grid::generate_empty(2, 2);
+        assert_eq!(grid.move_being((0, 0), ::Direction::West), Err(::MovementError::NotBeingInSquare));
     }
 }
 
